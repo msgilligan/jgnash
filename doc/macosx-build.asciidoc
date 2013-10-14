@@ -1,0 +1,15 @@
+= Mac OS X Build Process
+
+ cd <projdir>
+ git checkout -b msg-rel-2.12 2.12.0
+ mvn clean
+ cd jgnash-help
+ mvn clean
+ mvn install
+ cd ..
+ mvn package
+ ant
+ ./make-dmg.sh
+ git commit -m <message>
+ git tag -a MACDMG-2.12.0-mac.1 -m "Tag Mac OS X DMG build of 2.12.0"
+ git push --tags origin msg-rel-2.12
